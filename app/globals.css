@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-ink-700 antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-600 px-6 py-3.5 text-white shadow-glow hover:bg-brand-700 hover:shadow-lg active:scale-[0.98];
+  }
+
+  .btn-whatsapp {
+    @apply btn bg-[#25D366] px-6 py-3.5 text-white shadow-[0_12px_32px_-12px_rgba(37,211,102,0.6)] hover:bg-[#1fb855] active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply btn border border-slate-200 bg-white px-6 py-3.5 text-ink-900 hover:border-brand-300 hover:bg-brand-50 active:scale-[0.98];
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-700;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-100 bg-white p-6 shadow-card transition-all duration-300;
+  }
+}
+
+/* Legal/prose styling for privacy & terms pages */
+.legal {
+  @apply mt-8 space-y-6 text-[15px] leading-relaxed text-ink-700;
+}
+.legal h2 {
+  @apply text-xl font-bold tracking-tight text-ink-900;
+}
+.legal p {
+  @apply text-ink-500;
+}
+.legal ul {
+  @apply space-y-2 pl-5 text-ink-500;
+  list-style: disc;
+}
+.legal ul li {
+  @apply marker:text-brand-500;
+}
+
+/* Subtle grid background pattern */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
